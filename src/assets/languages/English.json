@@ -1,0 +1,29 @@
+{
+  "lang":"en",
+  "header": {
+    "home": "home",
+    "projecs": "Projecs",
+    "skills": "Skills",
+    "contactMe": "Contact Me"
+  },
+  "home": {
+    "title": "Junior FrontEnd Developer",
+    "mail": "Mail",
+    "description": "Passionate web developer specialized in the creation of online sites and applications, expert in transforming ideas into captivating sites and applications."
+  },
+  "projecs" : {
+    "title": "Projecs",
+    "code": "Code",
+    "website": "Website"
+  },
+  "skills": {
+    "title": "Skills",
+    "tools": "Tools",
+    "learning": "Learning"
+  },
+  "contactMe": {
+    "title": "Contact Me",
+    "send": "Send mail",
+    "copy": "Copy"
+  }
+}

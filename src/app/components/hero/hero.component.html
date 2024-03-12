@@ -1,0 +1,15 @@
+<section class="md:flex justify-between items-center py-32 gap-4" id="home">
+  <div class="w-96 md:m-0 mx-auto">
+    <h1 class="md:text-4xl text-5xl font-bold">{{info.name}}</h1>
+    <h2 class="md:text-xl text-2xl mb-4 text-yellow-200">{{langSvc.home().title}}</h2>
+    <p class="md:text-xs text-xl mb-4">{{langSvc.home().description}}</p>
+    <div class="flex gap-4">
+
+      <app-button title="Github" icon="./../../../assets/svg/github.svg" [href]="info.githubURL"></app-button>
+      <app-button title="Linkedin" icon="./../../../assets/svg/linkedin.svg" [href]="info.linkedin"></app-button>
+      <app-button [title]="langSvc.home().mail" icon="./../../../assets/svg/mail.svg" href="mailto:{{info.mail}}"></app-button>
+
+    </div>
+  </div>
+  <img src="./../../../assets/img/01.webp" alt="photo" class="md:w-72 w-96 rounded-3xl select-none md:m-0 mt-4 mx-auto">
+</section>

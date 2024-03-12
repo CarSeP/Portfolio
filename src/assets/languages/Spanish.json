@@ -1,0 +1,29 @@
+{
+  "lang":"es",
+  "header": {
+    "home": "Inicio",
+    "projecs": "Proyectos",
+    "skills": "Habilidades",
+    "contactMe": "Contáctame"
+  },
+  "home": {
+    "title": "Desarrollador FrontEnd Junior",
+    "mail": "Correo",
+    "description": "Apasionado desarrollador web especializado en la creación de sitios y aplicaciones online, experto en transformar ideas en sitios y aplicaciones cautivadoras."
+  },
+  "projecs": {
+    "title": "Proyectos",
+    "code": "Código",
+    "website": "Sitio web"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "tools": "Herramientas",
+    "learning": "Aprendiendo"
+  },
+  "contactMe": {
+    "title": "Contáctame",
+    "send": "Enviar correo",
+    "copy": "Copiar"
+  }
+}
