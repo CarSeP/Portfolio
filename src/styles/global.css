@@ -4,4 +4,6 @@
    --color-primary-bg: #212A37;
    --color-primary-color: #101720;
    --color-secondary-color: #FFD700;
+
+   --breakpoint-xs: 30rem;
 }
