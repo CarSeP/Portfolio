@@ -1,1 +1,45 @@
-<header class="bg-secondary-bg p-4"></header>
+---
+const sections = [
+  {
+    text: "Hero",
+    href: "#hero",
+  },
+  {
+    text: "Projects",
+    href: "#projects",
+  },
+  {
+    text: "Experience",
+    href: "#experience",
+  },
+  {
+    text: "Skills",
+    href: "#skills",
+  },
+  {
+    text: "Contact",
+    href: "#contact",
+  },
+  {
+    text: "Certifications",
+    href: "#certifications",
+  },
+];
+---
+
+<header class="flex justify-center bg-primary-color p-4">
+  <div class="max-w-[1000px] w-full">
+    <nav class="flex gap-4 text-xl">
+      {
+        sections.map((section) => (
+          <a
+            href={section.href}
+            class="cursor-pointer hover:text-secondary-color hover:-translate-y-1.5 duration-300 ease-in-out"
+          >
+            {section.text}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
