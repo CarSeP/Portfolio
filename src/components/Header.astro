@@ -1,35 +1,51 @@
 ---
+import {
+  Contact,
+  FlaskConical,
+  House,
+  Menu,
+  NotepadText,
+  Pencil,
+  Wrench,
+} from "@lucide/astro";
+import Sidebar from "./Sidebar.astro";
 const sections = [
   {
-    text: "Hero",
+    text: "Home",
     href: "#hero",
+    icon: House,
   },
   {
     text: "Projects",
     href: "#projects",
+    icon: Wrench,
   },
   {
     text: "Experience",
     href: "#experience",
+    icon: FlaskConical,
   },
   {
     text: "Skills",
     href: "#skills",
+    icon: Pencil,
   },
   {
     text: "Contact",
     href: "#contact",
+    icon: Contact,
   },
   {
     text: "Certifications",
     href: "#certifications",
+    icon: NotepadText,
   },
 ];
 ---
 
-<header class="flex justify-center bg-primary-color p-4">
+<header class="flex justify-center fixed w-full bg-primary-color p-4">
   <div class="max-w-[1000px] w-full">
-    <nav class="flex gap-4 text-xl">
+    <nav class="hidden gap-4 text-xl md:flex">
       {
         sections.map((section) => (
           <a
@@ -41,5 +57,21 @@ const sections = [
         ))
       }
     </nav>
+    <button
+      id="openSidebarButton"
+      class="block hover:text-secondary-color cursor-pointer md:hidden"
+    >
+      <Menu size="1.5rem" />
+    </button>
   </div>
 </header>
+<Sidebar sections={sections} />
+
+<script>
+  const $button = document.querySelector("#openSidebarButton");
+  const OpenSidebarEvent = new CustomEvent("openSidebar");
+
+  $button?.addEventListener("click", () => {
+    window.dispatchEvent(OpenSidebarEvent);
+  });
+</script>

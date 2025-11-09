@@ -1,0 +1,68 @@
+---
+import { X, type Icon as IconType } from "@lucide/astro";
+
+interface Props {
+  sections: section[];
+}
+
+interface section {
+  text: string;
+  href: string;
+  icon: typeof IconType;
+}
+
+const { sections } = Astro.props;
+---
+
+<aside
+  id="sidebar"
+  class="hidden p-4 fixed w-full xs:max-w-[260px] h-dvh bg-primary-color md:hidden"
+>
+  <button
+    id="closeSidebarButton"
+    class="block hover:text-secondary-color cursor-pointer md:hidden"
+  >
+    <X size="1.5rem" />
+  </button>
+  <nav class="flex flex-col gap-5 pt-8">
+    {
+      sections.map((section) => (
+        <a
+          href={section.href}
+          class="flex gap-2 cursor-pointer font-bold hover:text-secondary-color"
+        >
+          <section.icon size="1.5rem" />
+          {section.text}
+        </a>
+      ))
+    }
+  </nav>
+</aside>
+
+<script>
+  const $sidebar = document.querySelector("#sidebar");
+  const $button = document.querySelector("#closeSidebarButton");
+  const $anchors = $sidebar?.querySelectorAll("a");
+
+  const handleOpenSidebar = (open: boolean) => {
+    if (open) {
+      $sidebar?.classList.remove("hidden");
+      return;
+    }
+    $sidebar?.classList.add("hidden");
+  };
+
+  $anchors?.forEach((anchor) => {
+    anchor.addEventListener("click", () => {
+      handleOpenSidebar(false);
+    });
+  });
+
+  $button?.addEventListener("click", () => {
+    handleOpenSidebar(false);
+  });
+
+  window.addEventListener("openSidebar", () => {
+    handleOpenSidebar(true);
+  });
+</script>
