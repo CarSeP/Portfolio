@@ -1,15 +1,29 @@
 ---
+import Certifications from "../components/Certifications.astro";
+import Contact from "../components/Contact.astro";
+import Experience from "../components/Experience.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Layout from "../components/Layout.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
 import "./../styles/global.css";
 ---
 
 <Layout title="Portfolio">
-  <Header />
-  <main>
-    <Hero />
-  </main>
-  <Footer />
+  <div class="flex flex-col min-h-screen bg-primary-bg text-white">
+    <Header />
+    <main class="flex-1">
+      <div class="max-w-[1000px] w-full mx-auto p-4">
+        <Hero />
+        <Projects />
+        <Experience />
+        <Skills />
+        <Contact />
+        <Certifications />
+      </div>
+    </main>
+    <Footer />
+  </div>
 </Layout>
