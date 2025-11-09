@@ -2,5 +2,6 @@
 
 @theme {
    --color-primary-bg: #212A37;
-   --color-secondary-bg: #101720;
+   --color-primary-color: #101720;
+   --color-secondary-color: #FFD700;
 }
