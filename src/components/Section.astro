@@ -1,0 +1,10 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<section class="flex lg:block justify-center w-full" id={id}>
+  <slot />
+</section>

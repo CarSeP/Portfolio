@@ -1,1 +1,38 @@
-<h1>Hero</h1>
+---
+import Section from "./Section.astro";
+import { Github, Linkedin, Mail } from "@lucide/astro";
+---
+
+<Section id="hero">
+  <div class="flex items-center min-h-screen py-40">
+    <div>
+      <h1 class="text-4xl font-bold text-secondary-color">
+        Lorem ipsum dolor
+      </h1>
+      <span class="block text-2xl my-6">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        facere blanditiis dolore quasi.
+      </span>
+      <div class="flex gap-2">
+        <button
+          class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color"
+        >
+          <Github size={"1.25rem"} />
+          Github
+        </button>
+        <button
+          class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color"
+        >
+          <Linkedin size={"1.25rem"} />
+          Linkedin
+        </button>
+        <button
+          class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color"
+        >
+          <Mail size={"1.25rem"} />
+          Mail
+        </button>
+      </div>
+    </div>
+  </div>
+</Section>
