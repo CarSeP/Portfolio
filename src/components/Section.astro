@@ -1,10 +1,22 @@
 ---
+import { sections } from "../constants/sections";
+
 interface Props {
-  id: string;
+  name: string;
 }
-const { id } = Astro.props;
+const { name } = Astro.props;
+
+const section = sections.find((el) => el.id === name);
 ---
 
-<section class="flex lg:block justify-center w-full" id={id}>
+<section class="flex flex-col lg:block w-full" id={section?.id}>
+  {
+    section && section.id !== "home" && (
+      <header class="flex items-center gap-4 pt-20 pb-5 px-4">
+        <section.icon size="1.5rem" />
+        <h2 class="text-3xl">{section.text}</h2>
+      </header>
+    )
+  }
   <slot />
 </section>

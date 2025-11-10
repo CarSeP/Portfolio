@@ -1,22 +1,11 @@
 ---
-import { X, type Icon as IconType } from "@lucide/astro";
-
-interface Props {
-  sections: section[];
-}
-
-interface section {
-  text: string;
-  href: string;
-  icon: typeof IconType;
-}
-
-const { sections } = Astro.props;
+import { X } from "@lucide/astro";
+import { sections } from "../constants/sections";
 ---
 
 <aside
   id="sidebar"
-  class="hidden p-4 fixed w-full xs:max-w-[260px] h-dvh bg-primary-color md:hidden"
+  class="hidden p-4 fixed w-full xs:max-w-[260px] h-dvh z-10 text-white bg-primary-color md:hidden"
 >
   <button
     id="closeSidebarButton"

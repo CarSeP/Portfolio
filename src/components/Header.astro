@@ -1,46 +1,6 @@
 ---
-import {
-  Contact,
-  FlaskConical,
-  House,
-  Menu,
-  NotepadText,
-  Pencil,
-  Wrench,
-} from "@lucide/astro";
-import Sidebar from "./Sidebar.astro";
-const sections = [
-  {
-    text: "Home",
-    href: "#hero",
-    icon: House,
-  },
-  {
-    text: "Projects",
-    href: "#projects",
-    icon: Wrench,
-  },
-  {
-    text: "Experience",
-    href: "#experience",
-    icon: FlaskConical,
-  },
-  {
-    text: "Skills",
-    href: "#skills",
-    icon: Pencil,
-  },
-  {
-    text: "Contact",
-    href: "#contact",
-    icon: Contact,
-  },
-  {
-    text: "Certifications",
-    href: "#certifications",
-    icon: NotepadText,
-  },
-];
+import { Menu } from "@lucide/astro";
+import { sections } from "../constants/sections";
 ---
 
 <header class="flex justify-center fixed w-full bg-primary-color p-4">
@@ -65,7 +25,6 @@ const sections = [
     </button>
   </div>
 </header>
-<Sidebar sections={sections} />
 
 <script>
   const $button = document.querySelector("#openSidebarButton");

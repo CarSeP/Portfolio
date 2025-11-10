@@ -7,11 +7,13 @@ import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Layout from "../components/Layout.astro";
 import Projects from "../components/Projects.astro";
+import Sidebar from "../components/Sidebar.astro";
 import Skills from "../components/Skills.astro";
 import "./../styles/global.css";
 ---
 
 <Layout title="Portfolio">
+  <Sidebar />
   <div class="flex flex-col min-h-screen bg-primary-bg text-white">
     <Header />
     <main class="flex-1">
