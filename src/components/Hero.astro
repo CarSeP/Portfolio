@@ -14,24 +14,30 @@ import { Github, Linkedin, Mail } from "@lucide/astro";
         {info.description}
       </span>
       <div class="flex gap-2">
-        <button
-          class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color"
+        <a href={info.urls.github} target="_blank">
+          <button
+            class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color hover:bg-tertiary-color"
+          >
+            <Github size={"1.25rem"} />
+            Github
+          </button></a
         >
-          <Github size={"1.25rem"} />
-          Github
-        </button>
-        <button
-          class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color"
-        >
-          <Linkedin size={"1.25rem"} />
-          Linkedin
-        </button>
-        <button
-          class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color"
-        >
-          <Mail size={"1.25rem"} />
-          Mail
-        </button>
+        <a href={info.urls.linkedin} target="_blank">
+          <button
+            class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color hover:bg-tertiary-color"
+          >
+            <Linkedin size={"1.25rem"} />
+            Linkedin
+          </button>
+        </a>
+        <a href={`mailto:${info.mail}`}>
+          <button
+            class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color hover:bg-tertiary-color"
+          >
+            <Mail size={"1.25rem"} />
+            Mail
+          </button>
+        </a>
       </div>
     </div>
   </div>
