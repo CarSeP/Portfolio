@@ -13,12 +13,12 @@ import { sections } from "../constants/sections";
   >
     <X size="1.5rem" />
   </button>
-  <nav class="flex flex-col gap-5 pt-8">
+  <nav class="flex flex-col pt-8">
     {
       sections.map((section) => (
         <a
           href={section.href}
-          class="flex gap-2 cursor-pointer font-bold hover:text-secondary-color"
+          class="flex gap-2 p-4 cursor-pointer font-bold hover:text-secondary-color hover:bg-tertiary-color"
         >
           <section.icon size="1.5rem" />
           {section.text}
