@@ -1,1 +1,50 @@
-<h1>Contact</h1>
+---
+import Section from "./Section.astro";
+import { info } from "../constants/info";
+import { Copy, Send } from "@lucide/astro";
+import Tooltip from "./Tooltip.astro";
+---
+
+<Section name="contact">
+  <div class="flex justify-center">
+    <div class="flex">
+      <input
+        id="emailInput"
+        type="email"
+        class="rounded-l-2xl py-2 px-8 w-96 text-secondary-color bg-primary-color focus:outline-0"
+        disabled
+        value={info.mail}
+      />
+      <Tooltip text="Copy">
+        <button
+          id="copyButton"
+          data-tooltip-target="tooltip-copy"
+          class="h-full py-2 px-4 cursor-pointer bg-tertiary-color"
+          ><Copy size="1rem" />
+        </button>
+      </Tooltip>
+      <div class="flex items-center w-0.5 h-full bg-tertiary-color">
+        <div class="w-0.5 h-3/5 bg-primary-bg"></div>
+      </div>
+      <Tooltip text="Send mail">
+        <a href={`mailto:${info.mail}`}>
+          <button
+            data-tooltip-target="tooltip-mail"
+            class="rounded-r-2xl h-full py-2 px-4 cursor-pointer bg-tertiary-color"
+            ><Send size="1rem" />
+          </button>
+        </a>
+      </Tooltip>
+    </div>
+  </div>
+
+  <script>
+    const $copyButton = document.querySelector("#copyButton");
+    const $input = document.querySelector<HTMLInputElement>("#emailInput");
+
+    $copyButton?.addEventListener("click", () => {
+      const email = $input ? $input.value : "";
+      navigator.clipboard.writeText(email);
+    });
+  </script>
+</Section>
