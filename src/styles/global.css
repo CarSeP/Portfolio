@@ -7,4 +7,14 @@
   --color-tertiary-color: #0c121a;
   --text-tiny: 1rem;
   --breakpoint-xs: 30rem;
+
+  --color-background-base: #1f2937;
+  --color-background-secondary: #172032;
+  --color-text-primary: #ffffff;
+  --color-accent-primary: #eebd1a;
+  --color-accent-secondary: #9299a6;
+  --color-background-button: #374151;
+  --color-badge-background: #44422b;
+  --color-badge-text: #c6c9cd;
+
 }
