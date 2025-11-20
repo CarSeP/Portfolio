@@ -38,10 +38,10 @@ export const sections = [
     href: "#contact",
     icon: AtSign,
   },
-  {
-    id: "certifications",
-    text: "Certifications",
-    href: "#certifications",
-    icon: NotepadText,
-  },
+  // {
+  //   id: "certifications",
+  //   text: "Certifications",
+  //   href: "#certifications",
+  //   icon: NotepadText,
+  // },
 ];
