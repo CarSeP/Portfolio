@@ -4,19 +4,19 @@ import { skills } from "../constants/skills";
 ---
 
 <Section name="skills">
-  <div class="p-2 rounded-2xl bg-background-button">
+  <div class="p-2 rounded-2xl bg-background-tertiary">
     <div
       id="categoriesContainer"
       class="flex rounded-2xl gap-1 p-1 w-full text-accent-secondary bg-background-secondary"
     >
       <button
-        class="category font-bold rounded-xl p-2 w-full active cursor-pointer border-b border-primary-color"
+        class="category font-bold rounded-xl p-2 w-full active cursor-pointer"
       >
         All
       </button>
       {
         skills.map((skill) => (
-          <button class="category font-bold rounded-xl p-2 w-full cursor-pointer border-b border-primary-color">
+          <button class="category font-bold rounded-xl p-2 w-full cursor-pointer">
             {skill.group}
           </button>
         ))
@@ -42,7 +42,7 @@ import { skills } from "../constants/skills";
 <style>
   .category:hover,
   .category.active {
-    background-color: var(--color-secondary-color);
+    background-color: var(--color-accent-primary);
     color: var(--color-background-secondary);
   }
 </style>
