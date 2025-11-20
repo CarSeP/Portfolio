@@ -5,36 +5,36 @@ import { Github, Linkedin, Mail } from "@lucide/astro";
 ---
 
 <Section name="home">
-  <div class="flex items-center min-h-screen py-40">
-    <div>
-      <h1 class="text-4xl font-bold text-secondary-color">
+  <div class="flex items-center justify-center min-h-screen py-40">
+    <div class="text-center max-w-2xl">
+      <h1 class="text-7xl font-bold text-accent-primary">
         {info.name}
       </h1>
-      <span class="block text-2xl my-6">
+      <span class="block text-2xl my-6 text-accent-secondary">
         {info.description}
       </span>
-      <div class="flex gap-2">
+      <div class="flex flex-col xs:flex-row gap-4 justify-center pt-4">
         <a href={info.urls.github} target="_blank">
           <button
-            class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color hover:bg-tertiary-color"
+            class="flex items-center gap-1 w-full font-semibold px-6 py-2 cursor-pointer rounded-lg bg-background-button hover:scale-105"
           >
-            <Github size={"1.25rem"} />
+            <Github size={"1.25rem"} class="mr-1" />
             Github
           </button></a
         >
         <a href={info.urls.linkedin} target="_blank">
           <button
-            class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color hover:bg-tertiary-color"
+            class="flex items-center gap-1 w-full font-semibold px-6 py-2 cursor-pointer rounded-lg bg-background-button hover:scale-105"
           >
-            <Linkedin size={"1.25rem"} />
+            <Linkedin size={"1.25rem"} class="mr-1" />
             Linkedin
           </button>
         </a>
         <a href={`mailto:${info.mail}`}>
           <button
-            class="flex items-center gap-1 font-semibold px-4 py-1.5 cursor-pointer rounded-xl bg-primary-color hover:bg-tertiary-color"
+            class="flex items-center gap-1 w-full font-semibold px-6 py-2 cursor-pointer rounded-lg bg-background-button hover:scale-105"
           >
-            <Mail size={"1.25rem"} />
+            <Mail size={"1.25rem"} class="mr-1" />
             Mail
           </button>
         </a>

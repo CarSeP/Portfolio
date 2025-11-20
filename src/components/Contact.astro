@@ -1,49 +1,67 @@
 ---
 import Section from "./Section.astro";
 import { info } from "../constants/info";
-import { Copy, Send } from "@lucide/astro";
+import { Copy, Mail, Send, SendHorizontal } from "@lucide/astro";
 import Tooltip from "./Tooltip.astro";
 ---
 
 <Section name="contact">
-  <div class="flex justify-center">
-    <div class="flex">
-      <input
-        id="emailInput"
-        type="email"
-        class="rounded-l-2xl py-2 px-8 w-96 text-secondary-color bg-primary-color focus:outline-0"
-        disabled
-        value={info.mail}
-      />
-      <Tooltip text="Copy">
+  <div class="md:flex">
+    <div class="flex justify-center md:w-1/2 p-10 bg-special-primary">
+      <div class="w-96 flex flex-col gap-4">
+        <h4 class="text-2xl font-bold">Send me an email</h4>
+        <input
+          id="subject"
+          placeholder="Subject"
+          type="text"
+          class="py-1 px-2 text-xl rounded font-medium bg-special-secondary"
+        />
+        <textarea
+          id="body"
+          placeholder="Body"
+          class="py-1 px-2 text-xl rounded font-medium resize-none bg-special-secondary"
+          rows="10"></textarea>
         <button
-          id="copyButton"
-          data-tooltip-target="tooltip-copy"
-          class="h-full py-2 px-4 cursor-pointer bg-tertiary-color"
-          ><Copy size="1rem" />
-        </button>
-      </Tooltip>
-      <div class="flex items-center w-0.5 h-full bg-tertiary-color">
-        <div class="w-0.5 h-3/5 bg-primary-bg"></div>
+          id="send"
+          class="flex justify-center items-center gap-2 w-full font-bold p-2 rounded cursor-pointer bg-accent-primary text-special-secondary"
+          >Send Mail <SendHorizontal size="1rem" /></button
+        >
       </div>
-      <Tooltip text="Send mail">
-        <a href={`mailto:${info.mail}`}>
-          <button
-            data-tooltip-target="tooltip-mail"
-            class="rounded-r-2xl h-full py-2 px-4 cursor-pointer bg-tertiary-color"
-            ><Send size="1rem" />
+    </div>
+    <div
+      class="flex flex-col justify-center items-center md:w-1/2 p-10 bg-special-secondary text-accent-primary"
+    >
+      <Mail size="40%" />
+      <div class="flex gap-4 text-2xl md:text-3xl text-text-primary">
+        <span id="mail">{info.mail}</span>
+        <Tooltip text="Copy">
+          <button id="copy" class="cursor-pointer">
+            <Copy size="1.5rem" />
           </button>
-        </a>
-      </Tooltip>
+        </Tooltip>
+      </div>
     </div>
   </div>
 
   <script>
-    const $copyButton = document.querySelector("#copyButton");
-    const $input = document.querySelector<HTMLInputElement>("#emailInput");
+    const $copyButton = document.querySelector("#copy");
+    const $mail = document.querySelector("#mail");
+    const $textarea = document.querySelector<HTMLTextAreaElement>("textarea");
+    const $input = document.querySelector<HTMLInputElement>("#subject");
+    const $sendButton = document.querySelector("#send");
+
+    $sendButton?.addEventListener("click", () => {
+      const email = $mail ? $mail.innerHTML : "";
+      const body = $textarea ? encodeURIComponent($textarea.value) : "";
+      const subject = $input ? encodeURIComponent($input.value) : "";
+
+      const mailtoUrl = `mailto:${email}?body=${body}&subject=${subject}`;
+
+      window.location.href = mailtoUrl;
+    });
 
     $copyButton?.addEventListener("click", () => {
-      const email = $input ? $input.value : "";
+      const email = $mail ? $mail.innerHTML : "";
       navigator.clipboard.writeText(email);
     });
   </script>

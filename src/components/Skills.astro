@@ -4,47 +4,46 @@ import { skills } from "../constants/skills";
 ---
 
 <Section name="skills">
-  <div
-    id="categoriesContainer"
-    class="flex justify-evenly rounded-t-2xl p-2 w-full bg-primary-color"
-  >
-    <button
-      class="category active cursor-pointer border-b border-primary-color"
+  <div class="p-2 rounded-2xl bg-background-button">
+    <div
+      id="categoriesContainer"
+      class="flex rounded-2xl gap-1 p-1 w-full text-accent-secondary bg-background-secondary"
     >
-      All
-    </button>
-    {
-      skills.map((skill) => (
-        <button class="category cursor-pointer border-b border-primary-color">
-          {skill.group}
-        </button>
-      ))
-    }
-  </div>
-  <div
-    id="skillsContainer"
-    class="flex flex-wrap justify-center gap-4 mt-4 p-6 rounded-b-2xl bg-primary-color"
-  >
-    {
-      skills.map((skill) =>
-        skill.items.map((item) => (
-          <article
-            data-group={skill.group}
-            class="flex justify-center items-center size-24 rounded-xl bg-primary-bg"
-          >
-            {item}
-          </article>
+      <button
+        class="category font-bold rounded-xl p-2 w-full active cursor-pointer border-b border-primary-color"
+      >
+        All
+      </button>
+      {
+        skills.map((skill) => (
+          <button class="category font-bold rounded-xl p-2 w-full cursor-pointer border-b border-primary-color">
+            {skill.group}
+          </button>
         ))
-      )
-    }
+      }
+    </div>
+    <div id="skillsContainer" class="flex flex-wrap justify-center gap-4 p-10">
+      {
+        skills.map((skill) =>
+          skill.items.map((item) => (
+            <article
+              data-group={skill.group}
+              class="px-4 py-1.5 rounded bg-background-secondary"
+            >
+              {item}
+            </article>
+          ))
+        )
+      }
+    </div>
   </div>
 </Section>
 
 <style>
   .category:hover,
   .category.active {
-    color: var(--color-secondary-color);
-    border-color: var(--color-secondary-color);
+    background-color: var(--color-secondary-color);
+    color: var(--color-background-secondary);
   }
 </style>
 

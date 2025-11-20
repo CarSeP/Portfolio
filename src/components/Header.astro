@@ -3,14 +3,16 @@ import { Menu } from "@lucide/astro";
 import { sections } from "../constants/sections";
 ---
 
-<header class="flex justify-center fixed w-full bg-primary-color p-4 z-20">
-  <div class="max-w-5xl w-full">
-    <nav class="hidden gap-4 text-xl md:flex">
+<header
+  class="flex justify-center fixed w-full p-4 z-100 bg-linear-to-b from-background-base to-transparent"
+>
+  <div class="flex md:justify-end max-w-5xl w-full">
+    <nav class="hidden gap-4 text-xl md:flex text-accent-secondary">
       {
         sections.map((section) => (
           <a
             href={section.href}
-            class="cursor-pointer hover:text-secondary-color hover:-translate-y-1.5 duration-300 ease-in-out"
+            class="cursor-pointer hover:text-accent-primary hover:-translate-y-1.5 duration-300 ease-in-out"
           >
             {section.text}
           </a>
@@ -19,7 +21,7 @@ import { sections } from "../constants/sections";
     </nav>
     <button
       id="openSidebarButton"
-      class="block hover:text-secondary-color cursor-pointer md:hidden"
+      class="block hover:text-accent-primary cursor-pointer md:hidden"
     >
       <Menu size="1.5rem" />
     </button>
@@ -34,3 +36,13 @@ import { sections } from "../constants/sections";
     window.dispatchEvent(OpenSidebarEvent);
   });
 </script>
+
+<style>
+  .wsaaa {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-background-base),
+      rgba(0, 0, 0, 0)
+    );
+  }
+</style>
