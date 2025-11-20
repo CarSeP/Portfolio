@@ -1,10 +1,10 @@
 import {
-  Contact,
-  FlaskConical,
+  AtSign,
+  BriefcaseBusiness,
   House,
   NotepadText,
-  Pencil,
-  Wrench,
+  CodeXml,
+  Pickaxe,
 } from "@lucide/astro";
 
 export const sections = [
@@ -18,25 +18,25 @@ export const sections = [
     id: "projects",
     text: "Projects",
     href: "#projects",
-    icon: Wrench,
+    icon: Pickaxe,
   },
   {
     id: "experience",
     text: "Experience",
     href: "#experience",
-    icon: FlaskConical,
+    icon: BriefcaseBusiness,
   },
   {
     id: "skills",
     text: "Skills",
     href: "#skills",
-    icon: Pencil,
+    icon: CodeXml,
   },
   {
     id: "contact",
     text: "Contact",
     href: "#contact",
-    icon: Contact,
+    icon: AtSign,
   },
   {
     id: "certifications",

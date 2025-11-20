@@ -7,4 +7,5 @@ export const info = {
     github: "http://www.google.com",
     linkedin: "http://www.google.com",
   },
+  porfolioUrl: "http://www.google.com",
 };
