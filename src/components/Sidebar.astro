@@ -5,11 +5,11 @@ import { sections } from "../constants/sections";
 
 <aside
   id="sidebar"
-  class="hidden p-4 fixed w-full xs:max-w-[260px] h-dvh z-10 text-white bg-primary-color md:hidden"
+  class="hidden p-4 fixed w-full xs:max-w-[260px] h-dvh z-101 text-text-primary bg-special-primary md:hidden"
 >
   <button
     id="closeSidebarButton"
-    class="block hover:text-secondary-color cursor-pointer md:hidden"
+    class="block hover:text-accent-primary cursor-pointer md:hidden"
   >
     <X size="1.5rem" />
   </button>
@@ -18,7 +18,7 @@ import { sections } from "../constants/sections";
       sections.map((section) => (
         <a
           href={section.href}
-          class="flex gap-2 p-4 cursor-pointer font-bold hover:text-secondary-color hover:bg-tertiary-color"
+          class="flex gap-2 p-4 cursor-pointer font-bold hover:text-accent-primary hover:bg-special-secondary"
         >
           <section.icon size="1.5rem" />
           {section.text}
