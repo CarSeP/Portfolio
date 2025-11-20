@@ -3,6 +3,19 @@
 @theme {
   --text-tiny: 1rem;
   --breakpoint-xs: 30rem;
+  --color-background-base: #ffffff;
+  --color-background-secondary: #f1f3f5;
+  --color-background-tertiary: #e9ecef;
+  --color-text-primary: #1a1a1a;
+  --color-accent-primary: #0056b3;
+  --color-accent-secondary: #6c757d;
+  --color-badge-background: #e7f1ff;
+  --color-badge-text: #004085;
+  --color-special-primary: #f1f3f4;
+  --color-special-secondary: #e8eaed;
+}
+
+.dark {
   --color-background-base: #1f2937;
   --color-background-secondary: #172032;
   --color-background-tertiary: #374151;
@@ -13,4 +26,20 @@
   --color-badge-text: #c6c9cd;
   --color-special-primary: #18202f;
   --color-special-secondary: #101825;
+}
+
+.lightThemeIcon {
+  display: block;
+}
+
+.dark .lightThemeIcon {
+  display: none;
+}
+
+.darkThemeIcon {
+  display: none;
+}
+
+.dark .darkThemeIcon {
+  display: block;
 }

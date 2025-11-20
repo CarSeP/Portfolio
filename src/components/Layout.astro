@@ -16,6 +16,16 @@ const { title } = Astro.props;
         background-color: var(--color-background-base);
       }
     </style>
+    <script type="module">
+      const $body = document.querySelector("body");
+      window.addEventListener("changeTheme", () => {
+        $body.classList.toggle("dark");
+      });
+
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        $body.classList.add("dark");
+      }
+    </script>
   </head>
   <body>
     <slot />
