@@ -1,24 +1,26 @@
 export const experiences = [
   {
-    title: "Lorem ipsum dolor sit amet",
-    date: "January 2020 - Present",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio quibusdam magnam quis omnis hic vel sequi voluptatem atque harum",
+    title: "Intellisys D. Corp.",
+    date: "May 2024 - Present",
+    description: `
+    Full Stack Developer specialized in creating complete web applications,
+    covering both frontend and backend development. Responsible for the design, implementation
+    and maintenance of robust and scalable technological solutions, using best development
+    practices and the most modern technologies in the market.`,
     list: [
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio",
-    ],
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    date: "January 2020 - Present",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio quibusdam magnam quis omnis hic vel sequi voluptatem atque harum",
-    list: [
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse soluta iusto provident doloremque maxime aliquid, animi facere reprehenderit minima optio",
+      `
+      Developed specialized applications in the healthcare and education sectors, actively participating
+      in both backend and frontend. My responsibilities included the design,
+      implementation and optimization of key functionalities to ensure robust and scalable systems.
+      `,
+      `
+      Adopted agile methodologies, especially Scrum, to manage projects efficiently,
+      meeting established deadlines and adapting to changes in requirements.
+      `,
+      `
+      Used Git along with GitHub for version control and code reviews, ensuring quality and
+      collaborative work.
+      `,
     ],
   },
 ];

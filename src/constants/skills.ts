@@ -1,26 +1,27 @@
 export const skills = [
   {
+    group: "Languages",
+    items: ["JavaScript", "TypeScript"],
+  },
+  {
     group: "Frontend",
-    items: ["React", "NextJs", "Astro"],
+    items: ["React", "NextJS", "Astro", "Tailwind CSS", "Vite"],
   },
   {
     group: "Backend",
-    items: ["ExpressJs", "NestJs"],
+    items: ["ExpressJS", "NestJS", "Prisma ORM", "PostgreSQL", "MongoDB"],
   },
   {
-    group: "Lorem",
+    group: "Tools",
     items: [
-      "ipsum",
-      "dolor",
-      "sit",
-      "amet",
-      "consectetur",
-      "adipisicing",
-      "elit",
-      "Beatae",
-      "rem",
-      "quas",
-      "quaerat",
+      "Git",
+      "NodeJS",
+      "Bun",
+      "Github",
+      "Trello",
+      "Youtrack",
+      "Postman",
+      "Figma",
     ],
   },
 ];

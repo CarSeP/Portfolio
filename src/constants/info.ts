@@ -1,11 +1,11 @@
 export const info = {
-  name: "Lorem ipsum dolor",
+  name: "Carlos J. Peña",
   description:
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur facere blanditiis dolore quasi.",
-  mail: "asdas@sadsadas.com",
+    "Full-stack web developer with experience in creating robust and scalable web applications",
+  mail: "vjpd64@gmail.com",
   urls: {
-    github: "http://www.google.com",
-    linkedin: "http://www.google.com",
+    github: "https://github.com/CarSeP",
+    linkedin: "https://www.linkedin.com/in/carsep/",
   },
-  porfolioUrl: "http://www.google.com",
+  porfolioUrl: "https://github.com/CarSeP/Portfolio",
 };
