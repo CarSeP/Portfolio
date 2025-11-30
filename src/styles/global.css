@@ -3,16 +3,16 @@
 @theme {
   --text-tiny: 1rem;
   --breakpoint-xs: 30rem;
-  --color-background-base: #ffffff;
-  --color-background-secondary: #f1f3f5;
-  --color-background-tertiary: #e9ecef;
+  --color-background-base: #f8fafc;
+  --color-background-secondary: #ffffff;
+  --color-background-tertiary: #e2e8f0;
   --color-text-primary: #1a1a1a;
-  --color-accent-primary: #0056b3;
-  --color-accent-secondary: #6c757d;
-  --color-badge-background: #e7f1ff;
-  --color-badge-text: #004085;
+  --color-accent-primary: #edbc1a;
+  --color-accent-secondary: #757f8d;
+  --color-badge-background: #fdf4da;
+  --color-badge-text: #747c85;
   --color-special-primary: #f1f3f4;
-  --color-special-secondary: #e8eaed;
+  --color-special-secondary: #f1f5f9;
 }
 
 .dark {
