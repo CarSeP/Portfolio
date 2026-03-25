@@ -1,52 +1,51 @@
 ---
-import { Menu, Moon, Sun } from "@lucide/astro";
 import { sections } from "../constants/sections";
 ---
 
 <header
-  class="flex justify-center fixed w-full p-4 z-100 bg-linear-to-b from-background-base to-transparent"
+  class="fixed top-0 left-0 w-full z-50 p-6 flex justify-center pointer-events-none"
 >
-  <div class="flex justify-between max-w-5xl w-full">
-    <button
-      id="openSidebarButton"
-      class="block hover:text-accent-primary cursor-pointer md:hidden"
-    >
-      <Menu size="1.5rem" />
-    </button>
-    <button id="changeThemeButton" class="cursor-pointer">
-      <span class="darkThemeIcon">
-        <Moon />
-      </span>
-      <span class="lightThemeIcon">
-        <Sun />
-      </span>
-    </button>
-    <nav class="hidden gap-4 text-xl md:flex text-accent-secondary">
+  <nav
+    class="pointer-events-auto glass-panel rounded-full px-8 py-3 flex items-center gap-8 shadow-2xl shadow-accent-primary/10"
+  >
+    <div class="hidden md:flex gap-6">
       {
         sections.map((section) => (
           <a
             href={section.href}
-            class="cursor-pointer hover:text-accent-primary hover:-translate-y-1.5 duration-300 ease-in-out"
+            class="text-sm font-medium text-text-secondary hover:text-accent-primary transition-colors uppercase tracking-widest"
           >
             {section.text}
           </a>
         ))
       }
-    </nav>
-  </div>
+    </div>
+    <button id="openSidebarButton" class="md:hidden text-white">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><line x1="4" x2="20" y1="12" y2="12"></line><line
+          x1="4"
+          x2="20"
+          y1="6"
+          y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg
+      >
+    </button>
+  </nav>
 </header>
 
 <script>
   const $openSidebarButton = document.querySelector("#openSidebarButton");
-  const $changeThemeButton = document.querySelector("#changeThemeButton");
   const OpenSidebarEvent = new CustomEvent("openSidebar");
-  const ChangeThemeEvent = new CustomEvent("changeTheme");
 
   $openSidebarButton?.addEventListener("click", () => {
     window.dispatchEvent(OpenSidebarEvent);
-  });
-
-  $changeThemeButton?.addEventListener("click", () => {
-    window.dispatchEvent(ChangeThemeEvent);
   });
 </script>

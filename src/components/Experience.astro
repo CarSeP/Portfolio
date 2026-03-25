@@ -1,33 +1,42 @@
 ---
-import Section from "./Section.astro";
 import { experiences } from "../constants/experiences";
 ---
 
-<Section name="experience">
-  <div class="flex flex-col">
-    {
-      experiences.map((experience) => (
-        <article class="w-full">
-          <div class="absolute h-fit w-px bg-accent-primary translate-2" />
-          <header class="flex items-center gap-4">
-            <div class="flex z-10 justify-center items-center rounded-full size-4 bg-accent-primary">
-              <div class="block rounded-full size-2 bg-background-secondary" />
+<section id="experience" class="py-20 relative">
+  <div class="flex flex-col gap-16">
+    <div class="space-y-4">
+      <h2 class="text-4xl md:text-5xl font-display font-bold">Experience</h2>
+      <p class="text-text-secondary max-w-xl">
+        My professional journey in software engineering.
+      </p>
+    </div>
+    <div class="relative border-l border-border-subtle ml-3 md:ml-6 space-y-16">
+      {experiences.map((exp) => (
+        <div class="relative pl-8 md:pl-12 group">
+          <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-accent-secondary ring-4 ring-background-base group-hover:bg-accent-primary group-hover:scale-125 transition-all duration-300"></div>
+          <div class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+              <h3 class="text-2xl font-bold font-display">{exp.title}</h3>
+              <span class="text-sm font-mono text-accent-primary px-2 py-0.5 rounded bg-accent-primary/10 border border-accent-primary/20">
+                {exp.date}
+              </span>
             </div>
-            <h3 class="text-2xl font-bold">{experience.title}</h3>
-          </header>
-          <div class="pl-8">
-            <h4 class="py-2 text-accent-secondary">{experience.date}</h4>
-            <p class="lg:text-xl text-tiny">{experience.description}</p>
-            {experience.list && (
-              <ul class="list-disc px-10 text-accent-secondary">
-                {experience.list.map((item) => (
-                  <li class="py-2">{item}</li>
+            <p class="text-text-secondary max-w-2xl leading-relaxed">
+              {exp.description}
+            </p>
+            {exp.list && (
+              <ul class="space-y-3 pt-2">
+                {exp.list.map((item) => (
+                  <li class="flex items-start gap-3 text-sm text-text-muted group-hover:text-text-secondary transition-colors">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-border-highlight shrink-0"></span>
+                    <span class="leading-relaxed">{item}</span>
+                  </li>
                 ))}
               </ul>
             )}
           </div>
-        </article>
-      ))
-    }
+        </div>
+      ))}
+    </div>
   </div>
-</Section>
+</section>

@@ -5,53 +5,63 @@ import { sections } from "../constants/sections";
 
 <aside
   id="sidebar"
-  class="hidden p-4 fixed w-full xs:max-w-[260px] h-dvh z-101 text-text-primary bg-special-primary md:hidden"
+  class="fixed inset-y-0 right-0 w-64 bg-background-surface/90 backdrop-blur-xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-in-out z-[100] md:hidden"
 >
-  <button
-    id="closeSidebarButton"
-    class="block hover:text-accent-primary cursor-pointer md:hidden"
-  >
-    <X size="1.5rem" />
-  </button>
-  <nav class="flex flex-col pt-8">
-    {
-      sections.map((section) => (
-        <a
-          href={section.href}
-          class="flex gap-2 p-4 cursor-pointer font-bold hover:text-accent-primary hover:bg-special-secondary"
-        >
-          <section.icon size="1.5rem" />
-          {section.text}
-        </a>
-      ))
-    }
-  </nav>
+  <div class="p-6 h-full flex flex-col">
+    <div class="flex justify-end mb-8">
+      <button
+        id="closeSidebarButton"
+        class="p-2 text-text-secondary hover:text-white transition-colors"
+      >
+        <X size={24} />
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-2">
+      {
+        sections.map((section) => (
+          <a
+            href={section.href}
+            class="flex items-center gap-4 p-4 rounded-lg text-lg font-medium text-text-secondary hover:text-white hover:bg-white/5 transition-all group"
+          >
+            <section.icon size={20} class="group-hover:text-accent-primary transition-colors" />
+            {section.text}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
 </aside>
 
+<!-- Overlay -->
+<div 
+  id="sidebarOverlay"
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+></div>
+
 <script>
-  const $sidebar = document.querySelector("#sidebar");
-  const $button = document.querySelector("#closeSidebarButton");
-  const $anchors = $sidebar?.querySelectorAll("a");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  const closeBtn = document.getElementById("closeSidebarButton");
+  const anchors = sidebar?.querySelectorAll("a");
 
-  const handleOpenSidebar = (open: boolean) => {
-    if (open) {
-      $sidebar?.classList.remove("hidden");
-      return;
+  function toggleSidebar(show: boolean) {
+    if (show) {
+      sidebar?.classList.remove("translate-x-full");
+      overlay?.classList.remove("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "hidden";
+    } else {
+      sidebar?.classList.add("translate-x-full");
+      overlay?.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "";
     }
-    $sidebar?.classList.add("hidden");
-  };
+  }
 
-  $anchors?.forEach((anchor) => {
-    anchor.addEventListener("click", () => {
-      handleOpenSidebar(false);
-    });
-  });
-
-  $button?.addEventListener("click", () => {
-    handleOpenSidebar(false);
-  });
-
-  window.addEventListener("openSidebar", () => {
-    handleOpenSidebar(true);
+  window.addEventListener("openSidebar", () => toggleSidebar(true));
+  closeBtn?.addEventListener("click", () => toggleSidebar(false));
+  overlay?.addEventListener("click", () => toggleSidebar(false));
+  
+  anchors?.forEach(a => {
+    a.addEventListener("click", () => toggleSidebar(false));
   });
 </script>

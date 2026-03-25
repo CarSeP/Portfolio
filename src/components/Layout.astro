@@ -3,31 +3,20 @@ interface Props {
   title: string;
 }
 const { title } = Astro.props;
+import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <style>
-      body {
-        background-color: var(--color-background-base);
-      }
-    </style>
-    <script type="module">
-      const $body = document.querySelector("body");
-      window.addEventListener("changeTheme", () => {
-        $body.classList.toggle("dark");
-      });
-
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        $body.classList.add("dark");
-      }
-    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body>
+  <body class="bg-background-base text-text-primary selection:bg-accent-primary selection:text-background-base">
+    <div class="noise-overlay"></div>
     <slot />
   </body>
 </html>

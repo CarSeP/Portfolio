@@ -1,68 +1,65 @@
 ---
-import Section from "./Section.astro";
 import { info } from "../constants/info";
-import { Copy, Mail, Send, SendHorizontal } from "@lucide/astro";
-import Tooltip from "./Tooltip.astro";
+import { Mail, ArrowRight } from "@lucide/astro";
 ---
 
-<Section name="contact">
-  <div class="md:flex">
-    <div class="flex justify-center md:w-1/2 p-10 bg-special-primary">
-      <div class="w-96 flex flex-col gap-4">
-        <h4 class="text-2xl font-bold">Send me an email</h4>
-        <input
-          id="subject"
-          placeholder="Subject"
-          type="text"
-          class="py-1 px-2 text-xl rounded font-medium bg-special-secondary"
-        />
-        <textarea
-          id="body"
-          placeholder="Body"
-          class="py-1 px-2 text-xl rounded font-medium resize-none bg-special-secondary"
-          rows="10"></textarea>
-        <button
-          id="send"
-          class="flex justify-center items-center gap-2 w-full font-bold p-2 rounded cursor-pointer bg-accent-primary text-special-secondary"
-          >Send Mail <SendHorizontal size="1rem" /></button
-        >
-      </div>
+<section id="contact" class="py-32 relative overflow-hidden">
+  <div
+    class="absolute right-0 bottom-0 w-96 h-96 bg-accent-primary/5 rounded-full blur-[100px] pointer-events-none"
+  >
+  </div>
+  <div
+    class="glass-panel p-12 md:p-20 rounded-3xl relative overflow-hidden text-center space-y-12"
+  >
+    <div class="space-y-6 relative z-10">
+      <h2 class="text-5xl md:text-7xl font-display font-bold tracking-tight">
+        Would you like to<br />
+        <span class="text-accent-primary">contact me?</span>
+      </h2>
     </div>
     <div
-      class="flex flex-col justify-center items-center md:w-1/2 p-10 bg-special-secondary text-accent-primary"
+      class="flex flex-col md:flex-row items-center justify-center gap-6 relative z-10"
     >
-      <Mail size="40%" />
-      <div class="flex gap-4 text-2xl md:text-3xl text-text-primary">
-        <span id="mail">{info.mail}</span>
-        <Tooltip text="Copy">
-          <button id="copy" class="cursor-pointer">
-            <Copy size="1.5rem" />
-          </button>
-        </Tooltip>
-      </div>
+      <a
+        href={`mailto:${info.mail}`}
+        class="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-accent-primary transition-all duration-300 hover:scale-105"
+      >
+        <Mail size={20} />
+        <span>Send me an email</span>
+        <ArrowRight
+          size={20}
+          class="group-hover:translate-x-1 transition-transform"
+        />
+      </a>
+      <button
+        id="copyEmail"
+        data-email={info.mail}
+        class="cursor-pointer px-8 py-4 rounded-full border border-white/20 hover:bg-white/10 transition-colors font-mono text-sm"
+      >
+        {info.mail}
+      </button>
     </div>
   </div>
+</section>
 
-  <script>
-    const $copyButton = document.querySelector("#copy");
-    const $mail = document.querySelector("#mail");
-    const $textarea = document.querySelector<HTMLTextAreaElement>("textarea");
-    const $input = document.querySelector<HTMLInputElement>("#subject");
-    const $sendButton = document.querySelector("#send");
+<script>
+  const copyBtn = document.getElementById("copyEmail");
 
-    $sendButton?.addEventListener("click", () => {
-      const email = $mail ? $mail.innerHTML : "";
-      const body = $textarea ? encodeURIComponent($textarea.value) : "";
-      const subject = $input ? encodeURIComponent($input.value) : "";
-
-      const mailtoUrl = `mailto:${email}?body=${body}&subject=${subject}`;
-
-      window.location.href = mailtoUrl;
-    });
-
-    $copyButton?.addEventListener("click", () => {
-      const email = $mail ? $mail.innerHTML : "";
+  copyBtn?.addEventListener("click", () => {
+    const email = copyBtn.getAttribute("data-email");
+    if (email) {
       navigator.clipboard.writeText(email);
-    });
-  </script>
-</Section>
+      const originalText = copyBtn.innerText;
+      copyBtn.innerText = "Copied!";
+      copyBtn.classList.add("text-accent-primary", "border-accent-primary");
+
+      setTimeout(() => {
+        copyBtn.innerText = originalText;
+        copyBtn.classList.remove(
+          "text-accent-primary",
+          "border-accent-primary",
+        );
+      }, 2000);
+    }
+  });
+</script>

@@ -1,81 +1,34 @@
 ---
-import Section from "./Section.astro";
 import { skills } from "../constants/skills";
 ---
 
-<Section name="skills">
-  <div class="p-2 rounded-2xl bg-background-tertiary">
-    <div
-      id="categoriesContainer"
-      class="flex rounded-2xl gap-1 p-1 w-full text-accent-secondary bg-background-secondary"
-    >
-      <button
-        class="category font-bold rounded-xl p-2 w-full active cursor-pointer"
-      >
-        All
-      </button>
+<section id="skills" class="py-20">
+  <div class="space-y-12">
+    <div class="space-y-4">
+      <h2 class="text-4xl md:text-5xl font-display font-bold">
+        Technical Arsenal
+      </h2>
+      <p class="text-text-secondary max-w-xl">
+        The tools and technologies I use to bring ideas to life.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {
-        skills.map((skill) => (
-          <button class="category font-bold rounded-xl p-2 w-full cursor-pointer">
-            {skill.group}
-          </button>
+        skills.map((category) => (
+          <div class="glass-panel p-6 rounded-2xl space-y-6 hover:border-accent-primary/30 transition-colors duration-300">
+            <h3 class="text-lg font-mono text-accent-primary border-b border-border-subtle pb-2">
+              {category.group}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {category.items.map((item) => (
+                <span class="px-3 py-1.5 text-sm bg-white/5 hover:bg-white/10 rounded-md border border-white/5 transition-colors cursor-default">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         ))
       }
     </div>
-    <div id="skillsContainer" class="flex flex-wrap justify-center gap-4 p-10">
-      {
-        skills.map((skill) =>
-          skill.items.map((item) => (
-            <article
-              data-group={skill.group}
-              class="px-4 py-1.5 rounded bg-background-secondary"
-            >
-              {item}
-            </article>
-          ))
-        )
-      }
-    </div>
   </div>
-</Section>
-
-<style>
-  .category:hover,
-  .category.active {
-    background-color: var(--color-accent-primary);
-    color: var(--color-background-secondary);
-  }
-</style>
-
-<script>
-  const $container = document.querySelector("#categoriesContainer");
-  const $skillsContainer = document.querySelector("#skillsContainer");
-
-  $container?.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => {
-      removeActiveCategories();
-      button.classList.add("active");
-      onChangeCategories(button.innerText);
-    });
-  });
-
-  const onChangeCategories = (categories: string) => {
-    $skillsContainer?.querySelectorAll("article").forEach((skills) => {
-      if (
-        categories === skills.getAttribute("data-group") ||
-        categories === "All"
-      ) {
-        skills.style.display = "flex";
-        return;
-      }
-
-      skills.style.display = "none";
-    });
-  };
-
-  const removeActiveCategories = () => {
-    $container?.querySelectorAll("button").forEach((button) => {
-      button.classList.remove("active");
-    });
-  };
-</script>
+</section>
