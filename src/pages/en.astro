@@ -17,9 +17,9 @@ import { sections } from "../constants/en/sections";
 ---
 
 <Layout title="Portfolio">
-  <Sidebar sections={sections}/>
+  <Sidebar sections={sections} lang="en" />
   <div class="flex flex-col min-h-screen">
-    <Header sections={sections}/>
+    <Header sections={sections} lang="en" />
     <main class="flex-1 w-full overflow-hidden">
       <Hero info={info} buttonText="View Projects" />
       <div class="max-w-7xl mx-auto px-6 w-full space-y-32 pb-32">
@@ -42,6 +42,7 @@ import { sections } from "../constants/en/sections";
           title="Certifications & Awards"
           subtitle="View my professional qualifications and achievements."
           buttonText="View All"
+          lang="en"
         />
         <Contact
           info={info}
