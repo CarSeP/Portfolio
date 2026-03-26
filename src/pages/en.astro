@@ -1,0 +1,57 @@
+---
+import Certifications from "../components/Certifications.astro";
+import Contact from "../components/Contact.astro";
+import Experience from "../components/Experience.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Layout from "../components/Layout.astro";
+import Projects from "../components/Projects.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Skills from "../components/Skills.astro";
+import { info } from "../constants/en/info";
+import { projects } from "../constants/en/projects";
+import { experiences } from "../constants/en/experiences";
+import { skills } from "../constants/en/skills";
+import { sections } from "../constants/en/sections";
+---
+
+<Layout title="Portfolio">
+  <Sidebar sections={sections}/>
+  <div class="flex flex-col min-h-screen">
+    <Header sections={sections}/>
+    <main class="flex-1 w-full overflow-hidden">
+      <Hero info={info} buttonText="View Projects" />
+      <div class="max-w-7xl mx-auto px-6 w-full space-y-32 pb-32">
+        <Projects
+          projects={projects}
+          title="Selected Work"
+          subtitle="A collection of projects that define my approach to digital problem solving."
+        />
+        <Experience
+          experiences={experiences}
+          title="Experience"
+          subtitle="My professional journey in software engineering."
+        />
+        <Skills
+          skills={skills}
+          title="Technical Arsenal"
+          subtitle="The tools and technologies I use to bring ideas to life."
+        />
+        <Certifications
+          title="Certifications & Awards"
+          subtitle="View my professional qualifications and achievements."
+          buttonText="View All"
+        />
+        <Contact
+          info={info}
+          title="Would you like to"
+          subtitle="contact me?"
+          buttonText="Send me an email"
+          copiedText="Copied!"
+        />
+      </div>
+    </main>
+    <Footer info={info} buttonText="Source Code" />
+  </div>
+</Layout>

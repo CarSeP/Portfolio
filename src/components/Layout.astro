@@ -4,10 +4,12 @@ interface Props {
 }
 const { title } = Astro.props;
 import "../styles/global.css";
+
+const lang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang={lang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

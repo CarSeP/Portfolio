@@ -9,38 +9,32 @@ import {
 
 export const sections = [
   {
-    id: "home",
-    text: "Home",
+    text: "Inicio",
     href: "#home",
     icon: House,
   },
   {
-    id: "projects",
-    text: "Projects",
+    text: "Proyectos",
     href: "#projects",
     icon: Pickaxe,
   },
   {
-    id: "experience",
-    text: "Experience",
+    text: "Experiencia",
     href: "#experience",
     icon: BriefcaseBusiness,
   },
   {
-    id: "skills",
-    text: "Skills",
+    text: "Habilidades",
     href: "#skills",
     icon: CodeXml,
   },
   {
-    id: "certifications",
-    text: "Certifications",
+    text: "Certificaciones",
     href: "#certifications",
     icon: NotepadText,
   },
   {
-    id: "contact",
-    text: "Contact",
+    text: "Contacto",
     href: "#contact",
     icon: AtSign,
   },

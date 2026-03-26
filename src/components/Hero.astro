@@ -1,6 +1,13 @@
 ---
-import { info } from "../constants/info";
-import { Github, Linkedin, Mail, ArrowDown } from "@lucide/astro";
+import { Github, Linkedin } from "@lucide/astro";
+import type { Info } from "../interfaces/info";
+
+interface Props {
+  info: Info;
+  buttonText: string;
+}
+
+const { info, buttonText } = Astro.props;
 ---
 
 <section
@@ -36,7 +43,7 @@ import { Github, Linkedin, Mail, ArrowDown } from "@lucide/astro";
           href="#projects"
           class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-accent-primary hover:scale-105 transition-all duration-300"
         >
-          View Projects
+          {buttonText}
         </a>
         <a
           href={info.urls.github}
@@ -76,13 +83,5 @@ import { Github, Linkedin, Mail, ArrowDown } from "@lucide/astro";
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50"
-  >
-    <span class="text-xs font-mono uppercase tracking-widest text-text-muted"
-      >Scroll</span
-    >
-    <ArrowDown size={16} />
   </div>
 </section>

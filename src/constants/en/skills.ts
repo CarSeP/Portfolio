@@ -5,11 +5,18 @@ export const skills = [
   },
   {
     group: "Frontend",
-    items: ["React", "NextJS", "Astro", "Tailwind CSS", "Vite"],
+    items: ["Angular", "React", "NextJS", "Astro", "Tailwind CSS", "Vite"],
   },
   {
     group: "Backend",
-    items: ["ExpressJS", "NestJS", "Prisma ORM", "PostgreSQL", "MongoDB"],
+    items: [
+      "ExpressJS",
+      "NestJS",
+      "Prisma ORM",
+      "PostgreSQL",
+      "MongoDB",
+      "JestJS",
+    ],
   },
   {
     group: "Tools",

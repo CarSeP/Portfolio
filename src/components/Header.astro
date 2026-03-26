@@ -1,5 +1,11 @@
 ---
-import { sections } from "../constants/sections";
+import type { Section } from "../interfaces/section";
+
+interface Props {
+  sections: Section[];
+}
+
+const { sections } = Astro.props;
 ---
 
 <header
@@ -8,7 +14,7 @@ import { sections } from "../constants/sections";
   <nav
     class="pointer-events-auto glass-panel rounded-full px-8 py-3 flex items-center gap-8 shadow-2xl shadow-accent-primary/10"
   >
-    <div class="hidden md:flex gap-6">
+    <div class="hidden lg:flex gap-6 items-center">
       {
         sections.map((section) => (
           <a
@@ -19,8 +25,24 @@ import { sections } from "../constants/sections";
           </a>
         ))
       }
+      <div class="w-px h-4 bg-white/10 mx-2"></div>
+      <div class="flex gap-4 items-center font-mono text-xs">
+        <a
+          href="/en"
+          class={`hover:text-accent-primary transition-colors ${Astro.url.pathname === "/en" ? "text-accent-primary" : "text-text-muted"}`}
+        >
+          EN
+        </a>
+        <span class="text-white/10">/</span>
+        <a
+          href="/es"
+          class={`hover:text-accent-primary transition-colors ${Astro.url.pathname === "/es" ? "text-accent-primary" : "text-text-muted"}`}
+        >
+          ES
+        </a>
+      </div>
     </div>
-    <button id="openSidebarButton" class="md:hidden text-white">
+    <button id="openSidebarButton" class="lg:hidden text-white">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

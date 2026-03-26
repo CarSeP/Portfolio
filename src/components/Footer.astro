@@ -1,17 +1,38 @@
 ---
-import { info } from "../constants/info";
+import type { Info } from "../interfaces/info";
+
+interface Props {
+  info: Info;
+  buttonText: string;
+}
+
+const { info, buttonText } = Astro.props;
 ---
 
 <footer class="py-8 border-t border-white/5 bg-background-base">
-  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+  <div
+    class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4"
+  >
     <div class="flex items-center gap-2">
-      <span class="text-xl font-display font-bold">{info.name }</span>
+      <span class="text-xl font-display font-bold">{info.name}</span>
       <span class="text-text-muted">© {new Date().getFullYear()}</span>
     </div>
     <div class="flex gap-6 text-sm text-text-secondary">
-      <a href={info.urls.github} target="_blank" class="hover:text-white transition-colors">GitHub</a>
-      <a href={info.urls.linkedin} target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
-      <a href={info.porfolioUrl} target="_blank" class="hover:text-white transition-colors">Source Code</a>
+      <a
+        href={info.urls.github}
+        target="_blank"
+        class="hover:text-white transition-colors">GitHub</a
+      >
+      <a
+        href={info.urls.linkedin}
+        target="_blank"
+        class="hover:text-white transition-colors">LinkedIn</a
+      >
+      <a
+        href={info.porfolioUrl}
+        target="_blank"
+        class="hover:text-white transition-colors">{buttonText}</a
+      >
     </div>
   </div>
 </footer>

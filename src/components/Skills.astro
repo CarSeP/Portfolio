@@ -1,15 +1,23 @@
 ---
-import { skills } from "../constants/skills";
+import type { Skill } from "../interfaces/skill";
+
+interface Props {
+  skills: Skill[];
+  title: string;
+  subtitle: string;
+}
+
+const { skills, title, subtitle } = Astro.props;
 ---
 
 <section id="skills" class="py-20">
   <div class="space-y-12">
     <div class="space-y-4">
       <h2 class="text-4xl md:text-5xl font-display font-bold">
-        Technical Arsenal
+        {title}
       </h2>
       <p class="text-text-secondary max-w-xl">
-        The tools and technologies I use to bring ideas to life.
+        {subtitle}
       </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
