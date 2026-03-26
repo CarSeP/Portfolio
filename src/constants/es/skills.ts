@@ -22,9 +22,10 @@ export const skills = [
     group: "Herramientas",
     items: [
       "Git",
-      "NodeJS",
-      "Bun",
       "Github",
+      "Bun",
+      "NodeJS",
+      "Docker",
       "Trello",
       "Youtrack",
       "Postman",
