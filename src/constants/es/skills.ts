@@ -12,10 +12,10 @@ export const skills = [
     items: [
       "ExpressJS",
       "NestJS",
-      "Prisma ORM",
-      "PostgreSQL",
-      "MongoDB",
       "JestJS",
+      "MongoDB",
+      "PostgreSQL",
+      "Prisma ORM",
     ],
   },
   {
