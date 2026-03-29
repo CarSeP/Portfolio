@@ -5,6 +5,7 @@ export interface Project {
   content: string[];
   links: Link[];
   technologies: string[];
+  img?: string;
 }
 
 export interface Link {
