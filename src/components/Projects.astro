@@ -201,6 +201,13 @@ const { projects, title, subtitle, description, technologies } = Astro.props;
     $lightboxImg.classList.add("scale-95");
     $lightbox.classList.add("opacity-0", "pointer-events-none");
     document.body.style.overflow = "";
+
+    setTimeout(() => {
+      const scrollableContent = $lightbox.querySelector("div.overflow-y-auto");
+      if (scrollableContent) {
+        scrollableContent.scrollTop = 0;
+      }
+    }, 500);
   }
 
   $projectItems.forEach((item) => {
