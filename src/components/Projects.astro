@@ -25,8 +25,7 @@ const { projects, title, subtitle, description, technologies } = Astro.props;
           <article
             class="project-item cursor-pointer group relative rounded-2xl overflow-hidden glass-panel border border-border-subtle hover:border-accent-primary/50 transition-colors duration-500"
             data-title={project.title}
-            data-img={project.img}
-            data-description={project.content.join("\n\n")}
+            data-content={JSON.stringify(project.content)}
             data-technologies={JSON.stringify(project.technologies)}
           >
             <div class="absolute inset-0 bg-linear-to-t from-background-base via-transparent to-transparent opacity-80 z-10 pointer-events-none" />
@@ -51,10 +50,12 @@ const { projects, title, subtitle, description, technologies } = Astro.props;
                 </div>
                 <div class="space-y-4 max-h-40 opacity-100 transition-all duration-500 ease-out">
                   <p
-                    title={project.content[0]}
+                    title={
+                      project.content.find((c) => c.type === "text")?.value
+                    }
                     class="text-text-secondary leading-relaxed line-clamp-3"
                   >
-                    {project.content[0]}
+                    {project.content.find((c) => c.type === "text")?.value}
                   </p>
                 </div>
                 <div class="flex flex-wrap gap-2">
@@ -112,28 +113,13 @@ const { projects, title, subtitle, description, technologies } = Astro.props;
         </div>
       </div>
 
-      <div
-        class="w-full aspect-video overflow-hidden rounded-xl bg-white/5 shrink-0"
-      >
-        <img
-          id="project-lightbox-img"
-          src=""
-          alt=""
-          class="w-full h-full object-cover transform scale-95 transition-transform duration-500"
-        />
-      </div>
-
       <div class="space-y-3">
         <h4
           class="text-xs font-mono text-text-muted uppercase tracking-widest font-semibold"
         >
           {description}
         </h4>
-        <p
-          id="project-lightbox-description"
-          class="text-text-secondary leading-relaxed whitespace-pre-line"
-        >
-        </p>
+        <div id="project-lightbox-content" class="space-y-6"></div>
       </div>
     </div>
   </div>
@@ -141,41 +127,58 @@ const { projects, title, subtitle, description, technologies } = Astro.props;
 
 <script>
   const $lightbox = document.getElementById("project-lightbox");
-  const $lightboxImg = document.getElementById(
-    "project-lightbox-img",
-  ) as HTMLImageElement;
   const $lightboxTitle = document.getElementById("project-lightbox-title");
-  const $lightboxDesc = document.getElementById("project-lightbox-description");
+  const $lightboxContent = document.getElementById("project-lightbox-content");
   const $lightboxTech = document.getElementById("project-lightbox-tech");
   const $closeBtn = document.getElementById("close-project-lightbox");
   const $projectItems = document.querySelectorAll(".project-item");
 
   function openLightbox(
-    img: string,
     title: string,
-    desc: string,
+    content: { type: string; value: string }[],
     tech: string[],
   ) {
-    if (
-      !$lightbox ||
-      !$lightboxImg ||
-      !$lightboxTitle ||
-      !$lightboxDesc ||
-      !$lightboxTech
-    )
+    if (!$lightbox || !$lightboxTitle || !$lightboxContent || !$lightboxTech)
       return;
 
     $lightboxTitle.textContent = title;
-    $lightboxDesc.textContent = desc;
-    $lightboxImg.src = img;
 
-    if (!$lightboxImg.parentElement) return;
-
-    if (!img) {
-      $lightboxImg.parentElement.style.display = "none";
-    } else {
-      $lightboxImg.parentElement.style.display = "block";
-    }
+    $lightboxContent.innerHTML = "";
+    content.forEach((c) => {
+      if (c.type === "subtitle") {
+        const h4 = document.createElement("h4");
+        h4.className =
+          "text-xs font-mono text-text-muted uppercase tracking-widest font-semibold";
+        h4.textContent = c.value;
+        $lightboxContent.appendChild(h4);
+      } else if (c.type === "text") {
+        const p = document.createElement("p");
+        p.className = "text-text-secondary leading-relaxed";
+        p.textContent = c.value;
+        $lightboxContent.appendChild(p);
+      } else if (c.type === "image") {
+        const wrapper = document.createElement("div");
+        wrapper.className =
+          "w-full aspect-video overflow-hidden rounded-xl bg-white/5";
+        const img = document.createElement("img");
+        img.src = c.value;
+        img.alt = "";
+        img.className =
+          "w-full h-full object-cover transform scale-95 transition-transform duration-500";
+        wrapper.appendChild(img);
+        $lightboxContent.appendChild(wrapper);
+      } else if (c.type === "video") {
+        const wrapper = document.createElement("div");
+        wrapper.className =
+          "w-full aspect-video overflow-hidden rounded-xl bg-white/5";
+        const video = document.createElement("video");
+        video.src = c.value;
+        video.controls = true;
+        video.className = "w-full h-full object-cover";
+        wrapper.appendChild(video);
+        $lightboxContent.appendChild(wrapper);
+      }
+    });
 
     $lightboxTech.innerHTML = "";
     tech.forEach((t) => {
@@ -187,18 +190,12 @@ const { projects, title, subtitle, description, technologies } = Astro.props;
     });
 
     $lightbox.classList.remove("opacity-0", "pointer-events-none");
-    setTimeout(() => {
-      $lightboxImg.classList.remove("scale-95");
-      $lightboxImg.classList.add("scale-100");
-    }, 10);
     document.body.style.overflow = "hidden";
   }
 
   function closeLightbox() {
-    if (!$lightbox || !$lightboxImg) return;
+    if (!$lightbox) return;
 
-    $lightboxImg.classList.remove("scale-100");
-    $lightboxImg.classList.add("scale-95");
     $lightbox.classList.add("opacity-0", "pointer-events-none");
     document.body.style.overflow = "";
 
@@ -214,11 +211,12 @@ const { projects, title, subtitle, description, technologies } = Astro.props;
     item.addEventListener("click", (e) => {
       if ((e.target as HTMLElement).closest("a")) return;
 
-      const img = item.getAttribute("data-img") || "";
       const title = item.getAttribute("data-title") || "";
-      const desc = item.getAttribute("data-description") || "";
+      const content = JSON.parse(
+        item.getAttribute("data-content") || "[]",
+      ) as { type: string; value: string }[];
       const tech = JSON.parse(item.getAttribute("data-technologies") || "[]");
-      openLightbox(img, title, desc, tech);
+      openLightbox(title, content, tech);
     });
   });
 

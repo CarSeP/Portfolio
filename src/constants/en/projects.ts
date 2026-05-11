@@ -1,10 +1,19 @@
 import { ChevronsLeftRightEllipsis, Globe } from "@lucide/astro";
+import type { Project } from "../../interfaces/projects";
 
-export const projects = [
+export const projects: Project[] = [
   {
     title: "Kanban Board",
     content: [
-      "A real-time task management platform designed for visual workflow organization. It features bi-directional communication for instant user updates, a robust architecture with strict data validation, and integrated API documentation.",
+      {
+        type: "image",
+        value: "/projects/02.webp",
+      },
+      {
+        type: "text",
+        value:
+          "A real-time task management platform designed for visual workflow organization. It features bi-directional communication for instant user updates, a robust architecture with strict data validation, and integrated API documentation.",
+      },
     ],
     links: [
       {
@@ -38,12 +47,19 @@ export const projects = [
       "Zod",
       "Pino",
     ],
-    img: "/projects/02.webp",
   },
   {
     title: "Url shortener",
     content: [
-      "A link shortener designed to be lightweight and fast. It allows generating unique redirection codes and managing data storage flexibly between SQLite and PostgreSQL.",
+      {
+        type: "image",
+        value: "/projects/01.webp",
+      },
+      {
+        type: "text",
+        value:
+          "A link shortener designed to be lightweight and fast. It allows generating unique redirection codes and managing data storage flexibly between SQLite and PostgreSQL.",
+      },
     ],
     links: [
       {
@@ -58,12 +74,15 @@ export const projects = [
       },
     ],
     technologies: ["Bun", "Elysia", "TypeScript", "Sqlite", "PostgreSQL"],
-    img: "/projects/01.webp",
   },
   {
     title: "The Mcp Repository",
     content: [
-      "Server based on the Model Context Protocol (MCP) that exposes a set of modular tools for AI agents.",
+      {
+        type: "text",
+        value:
+          "Server based on the Model Context Protocol (MCP) that exposes a set of modular tools for AI agents.",
+      },
     ],
     links: [
       {
