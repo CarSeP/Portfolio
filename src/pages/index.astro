@@ -95,6 +95,12 @@ import Layout from "../components/Layout.astro";
   </main>
 </Layout>
 
+<script is:inline>
+  const lang = navigator.language || navigator.userLanguage || '';
+  const redirect = lang.toLowerCase().startsWith('es') ? '/es' : '/en';
+  window.location.href = redirect;
+</script>
+
 <style>
   .group:hover .glow-text {
     text-shadow: 0 0 20px rgba(204, 255, 0, 0.3);
