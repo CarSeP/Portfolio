@@ -5,7 +5,16 @@ export const skills = [
   },
   {
     group: "Frontend",
-    items: ["Angular", "React", "NextJS", "Astro", "Tailwind CSS", "Vite"],
+    items: [
+      "Angular",
+      "React",
+      "NextJS",
+      "Astro",
+      "Tailwind CSS",
+      "CSS",
+      "HTML",
+      "Vite",
+    ],
   },
   {
     group: "Backend",
@@ -31,5 +40,21 @@ export const skills = [
       "Postman",
       "Figma",
     ],
+  },
+  {
+    group: "Diseño de Software",
+    items: ["SOLID", "MVC", "Clean Code", "Arquitectura Hexagonal"],
+  },
+  {
+    group: "IA",
+    items: ["Prompts", "Agentes", "MCPs", "Skills"],
+  },
+  {
+    group: "Testing",
+    items: ["Jest", "Vitest"],
+  },
+  {
+    group: "Otros",
+    items: ["N8N", "GCP", "API REST", "GraphQL", "WebSocket"],
   },
 ];
