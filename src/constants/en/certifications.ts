@@ -1,26 +1,26 @@
 export const certifications = [
   {
     title: "JavaScript Certification",
-    img: "/certifications/05.webp",
+    img: "/certifications/javascript-certification.webp",
   },
   {
     title: "Responsive Web Design Certification",
-    img: "/certifications/06.webp",
+    img: "/certifications/responsive-web-design-certification.webp",
   },
   {
     title: "Introduction to Relational Databases in SQL",
-    img: "/certifications/04.webp",
+    img: "/certifications/introduction-to-relational-databases-in-sql.webp",
   },
   {
     title: "Introduction to Docker",
-    img: "/certifications/03.webp",
+    img: "/certifications/introduction-to-docker.webp",
   },
   {
     title: "A2 English For Developers",
-    img: "/certifications/02.webp",
+    img: "/certifications/a2-english-for-developers.webp",
   },
   {
     title: "Oral and Written Expression Techniques in Spanish",
-    img: "/certifications/01.webp",
+    img: "/certifications/oral-and-written-expression-techniques-in-spanish.webp",
   },
 ];
