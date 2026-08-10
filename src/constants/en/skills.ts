@@ -18,14 +18,7 @@ export const skills = [
   },
   {
     group: "Backend",
-    items: [
-      "ExpressJS",
-      "NestJS",
-      "JestJS",
-      "MongoDB",
-      "PostgreSQL",
-      "Prisma ORM",
-    ],
+    items: ["ExpressJS", "NestJS", "MongoDB", "PostgreSQL", "Prisma ORM"],
   },
   {
     group: "Tools",
@@ -55,6 +48,6 @@ export const skills = [
   },
   {
     group: "Other",
-    items: ["N8N", "GCP", "API REST", "GraphQL", "WebSocket"],
+    items: ["N8N", "GCP", "API REST", "GraphQL", "WebSocket", "Swagger"],
   },
 ];
