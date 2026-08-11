@@ -6,13 +6,45 @@ export const projects: Project[] = [
     title: "Kanban Board",
     content: [
       {
+        type: "text",
+        value:
+          "KanbanBoard es una aplicación full-stack de tablero Kanban colaborativo en tiempo real, diseñada para gestionar tareas organizadas en columnas y tarjetas con un editor de texto enriquecido. El sistema se compone de una API REST con soporte WebSocket en el backend (Node.js, Express 5, Prisma y PostgreSQL) y una SPA en React 19 + Vite en el frontend, ofreciendo creación de boards, columnas y tarjetas con reordenamiento mediante drag-and-drop, además de generación automática de IDs cortos de 7 caracteres para compartir tableros de forma más amigable.",
+      },
+      {
         type: "image",
-        value: "/projects/02.webp",
+        value: "/projects/kanban-dashboard.webp",
       },
       {
         type: "text",
         value:
-          "Una plataforma de gestión de tareas en tiempo real que permite organizar flujos de trabajo de manera visual. Implementa comunicación bidireccional para actualizaciones instantáneas entre usuarios y una arquitectura robusta con validación de datos y documentación de API integrada.",
+          "La aplicación permite la colaboración entre múltiples usuarios en el mismo tablero mediante un sistema de invitaciones (por enlace compartible con expiración opcional o por usuario) y un sistema de roles jerárquico (OWNER, ADMIN, EDITOR y VIEWER) que controla los permisos de cada integrante. Las actualizaciones se sincronizan en tiempo real entre todos los participantes a través de Socket.IO, que notifica los cambios para refrescar la vista del cliente.",
+      },
+      {
+        type: "image",
+        value: "/projects/kanban-invite-user-menu.webp",
+      },
+      {
+        type: "text",
+        value:
+          "La autenticación y gestión de sesión se implementan con JWT, transportado en una cookie httpOnly o en el header Authorization Bearer, con una vigencia de 7 días. El login soporta Google OAuth 2.0 (scopes de email y perfil) mediante googleapis, así como un acceso rápido como Guest para crear un usuario anónimo. Existe un endpoint de validación de sesión y un endpoint de logout que limpia la cookie, y el middleware global de auth protege todas las rutas de boards, columnas, tarjetas e invitaciones.",
+      },
+      {
+        type: "subtitle",
+        value: "Calidad y documentación",
+      },
+      {
+        type: "text",
+        value:
+          "El proyecto cuenta con cobertura de tests en ambos extremos: el backend utiliza Jest 30 con ts-jest y tests de integración que ejercitan los servicios contra una base de datos Prisma real (auth, board, card, column y prisma), mientras que el frontend emplea Vitest 4 junto con Testing Library y jsdom para testear componentes, hooks y utilidades (incluyendo el editor de Slate.js). Los comandos `npm test` en cada repositorio ejecutan las suites completas.",
+      },
+      {
+        type: "text",
+        value:
+          "La API REST del backend está documentada con Swagger, generada automáticamente mediante swagger-autogen desde la configuración de rutas y expuesta en una interfaz Swagger UI servida en /swagger durante desarrollo. Esto facilita la exploración y prueba de todos los endpoints de autenticación, boards, columnas, tarjetas e invitaciones.",
+      },
+      {
+        type: "image",
+        value: "/projects/kanban-swagger.webp",
       },
     ],
     links: [
@@ -47,50 +79,5 @@ export const projects: Project[] = [
       "Zod",
       "Pino",
     ],
-  },
-  {
-    title: "Url shortener",
-    content: [
-      {
-        type: "image",
-        value: "/projects/01.webp",
-      },
-      {
-        type: "text",
-        value:
-          "Un acortador de enlaces diseñado para ser ligero y rápido. Permite generar códigos únicos de redirección y gestionar el almacenamiento de datos de forma flexible entre SQLite y PostgreSQL.",
-      },
-    ],
-    links: [
-      {
-        title: "Codigo",
-        icon: ChevronsLeftRightEllipsis,
-        url: "https://github.com/CarSeP/url-shortener",
-      },
-      {
-        title: "Web",
-        icon: Globe,
-        url: "https://short.carsep.xyz",
-      },
-    ],
-    technologies: ["Bun", "Elysia", "TypeScript", "Sqlite", "PostgreSQL"],
-  },
-  {
-    title: "The Mcp Repository",
-    content: [
-      {
-        type: "text",
-        value:
-          "Servidor basado en el Model Context Protocol (MCP) que expone un conjunto de herramientas modulares para agentes de IA.",
-      },
-    ],
-    links: [
-      {
-        title: "Codigo",
-        icon: ChevronsLeftRightEllipsis,
-        url: "https://github.com/CarSeP/TheMcpRepository",
-      },
-    ],
-    technologies: ["TypeScript", "MCP"],
   },
 ];
