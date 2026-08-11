@@ -146,4 +146,61 @@ export const projects: Project[] = [
       "Pino",
     ],
   },
+  {
+    title: "URL Shortener",
+    content: [
+      {
+        type: "text",
+        value:
+          "This project is a lightweight and fast URL shortener built with Bun, TypeScript, and the Elysia framework. It generates unique short codes for long URLs, redirects visitors to the original URL when accessing the code, and records every click with relevant information such as the visitor's IP address and user agent.",
+      },
+      {
+        type: "image",
+        value: "/projects/url-shortener-home.webp",
+      },
+      {
+        type: "text",
+        value:
+          "Once authenticated, each user has a personal dashboard where they can view all the links they have created, their click statistics (total and per link), and a history of the most recent clicks. The system also allows deleting individual links, keeping the user in full control of their resources.",
+      },
+      {
+        type: "text",
+        value:
+          "Authentication is handled through GitHub OAuth, allowing users to sign in quickly and securely with their GitHub account. Once the OAuth flow is complete, the session is kept in a cookie and the dashboard and profile API routes are protected, displaying only the information that belongs to the authenticated user.",
+      },
+      {
+        type: "image",
+        value: "/projects/url-shortener-profile.webp",
+      },
+      {
+        type: "subtitle",
+        value: "Flexibility and developer experience",
+      },
+      {
+        type: "text",
+        value:
+          "The application is designed to be portable: it uses SQLite by default in development for a frictionless setup and can switch to PostgreSQL in production simply by defining the DATABASE_URL environment variable. It also includes tests with Bun's native test runner and a minimalist HTML/JS frontend served by the backend itself, offering a compact full-stack solution with outstanding performance thanks to the Bun runtime.",
+      },
+    ],
+    links: [
+      {
+        title: "Code",
+        icon: ChevronsLeftRightEllipsis,
+        url: "https://github.com/CarSeP/url-shortener",
+      },
+      {
+        title: "Web",
+        icon: Globe,
+        url: "https://short.carsep.xyz",
+      },
+    ],
+    technologies: [
+      "TypeScript",
+      "Bun",
+      "Elysia",
+      "SQLite",
+      "PostgreSQL",
+      "GitHub OAuth",
+    ],
+  },
 ];

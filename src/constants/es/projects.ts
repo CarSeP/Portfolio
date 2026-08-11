@@ -146,4 +146,61 @@ export const projects: Project[] = [
       "Pino",
     ],
   },
+  {
+    title: "Acortador de URLs",
+    content: [
+      {
+        type: "text",
+        value:
+          "Este proyecto es un acortador de URLs ligero y rápido, construido con Bun, TypeScript y el framework Elysia. Permite generar códigos cortos únicos para URLs largas, redirigir a la URL original al acceder al código y llevar un registro de cada clic con información relevante como la dirección IP y el user agent del visitante.",
+      },
+      {
+        type: "image",
+        value: "/projects/url-shortener-home.webp",
+      },
+      {
+        type: "text",
+        value:
+          "Una vez autenticado, cada usuario dispone de un dashboard personal donde puede ver todos los enlaces que ha creado, sus estadísticas de clics (totales y por enlace) y un historial de los clics más recientes. El sistema también permite eliminar enlaces de forma individual, manteniendo el control total del usuario sobre sus recursos.",
+      },
+      {
+        type: "text",
+        value:
+          "La autenticación se gestiona mediante GitHub OAuth, lo que permite iniciar sesión de forma rápida y segura con la cuenta de GitHub del usuario. Una vez completado el flujo de OAuth, la sesión se mantiene en una cookie y las rutas del dashboard y de la API de perfil quedan protegidas, mostrando únicamente la información correspondiente al usuario autenticado.",
+      },
+      {
+        type: "image",
+        value: "/projects/url-shortener-profile.webp",
+      },
+      {
+        type: "subtitle",
+        value: "Flexibilidad y experiencia de desarrollo",
+      },
+      {
+        type: "text",
+        value:
+          "La aplicación está diseñada para ser portable: utiliza SQLite por defecto en desarrollo para una configuración sin fricciones y permite cambiar a PostgreSQL en producción simplemente definiendo la variable de entorno DATABASE_URL. Incluye además tests con el runner nativo de Bun y un frontend minimalista en HTML/JS servido por el propio backend, ofreciendo una solución full-stack compacta con un rendimiento destacado gracias al runtime de Bun.",
+      },
+    ],
+    links: [
+      {
+        title: "Codigo",
+        icon: ChevronsLeftRightEllipsis,
+        url: "https://github.com/CarSeP/url-shortener",
+      },
+      {
+        title: "Web",
+        icon: Globe,
+        url: "https://short.carsep.xyz",
+      },
+    ],
+    technologies: [
+      "TypeScript",
+      "Bun",
+      "Elysia",
+      "SQLite",
+      "PostgreSQL",
+      "GitHub OAuth",
+    ],
+  },
 ];
