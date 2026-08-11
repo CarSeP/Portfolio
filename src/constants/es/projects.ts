@@ -3,6 +3,72 @@ import type { Project } from "../../interfaces/projects";
 
 export const projects: Project[] = [
   {
+    title: "Gestor de Préstamos",
+    content: [
+      {
+        type: "text",
+        value:
+          "Platika es un gestor de préstamos orientado a entidades financieras y administradores de cartera que necesitan administrar clientes, préstamos, cuotas y pagos de forma centralizada. La plataforma cubre el ciclo completo del crédito: alta de clientes, simulación de préstamos, asignación de créditos, seguimiento de cuotas (pendientes, pagadas y vencidas), registro de abonos y morosidad con cálculo automático de cargos por mora, y reportes consolidados para la toma de decisiones.",
+      },
+      {
+        type: "image",
+        value: "/projects/platika-login.webp",
+      },
+      {
+        type: "image",
+        value: "/projects/platika-dashboard.webp",
+      },
+      {
+        type: "text",
+        value:
+          "El sistema soporta múltiples métodos de amortización (Alemán y Francés), distintas frecuencias de pago (semanal, quincenal y mensual) y tipos de tasa (mensual y anual), con un simulador que permite proyectar el cronograma de cuotas antes de formalizar el préstamo. Además, incorpora un módulo de mensajería entre administradores y usuarios, gestión de roles con permisos granulares y un sistema de logs que audita cada acción realizada en la plataforma.",
+      },
+      {
+        type: "image",
+        value: "/projects/platika-loan-simulation.webp",
+      },
+      {
+        type: "text",
+        value:
+          "El acceso se gestiona con autenticación mediante JWT y contraseña encriptada con bcrypt, integrando también inicio de sesión con Google OAuth; la sesión se mantiene en una cookie httpOnly y todas las rutas del dashboard y de la API están protegidas por un middleware centralizado que valida el token y la vigencia del acceso del usuario. El sistema de roles es jerárquico con permisos personalizables por usuario y soporta renovaciones de acceso controladas por el administrador.",
+      },
+      {
+        type: "subtitle",
+        value: "Internacionalización y experiencia de usuario",
+      },
+      {
+        type: "text",
+        value:
+          "La aplicación está preparada para usuarios de distintos países: incluye internacionalización completa con next-intl en español e inglés, preferencias configurables de moneda (DOP, USD o ambas), idioma, tema (claro, oscuro o sistema) y métodos de amortización por defecto. Ofrece además soporte de carga de archivos a S3, validaciones robustas en backend y un dashboard responsivo con tablas, filtros y vistas detalladas para cada entidad del dominio.",
+      },
+      {
+        type: "image",
+        value: "/projects/platika-settings.webp",
+      },
+    ],
+    links: [
+      {
+        title: "Web",
+        icon: Globe,
+        url: "https://platika.vercel.app/login",
+      },
+    ],
+    technologies: [
+      "TypeScript",
+      "Next.js",
+      "NestJS",
+      "React",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Next-intl",
+      "Tailwind CSS",
+      "JWT",
+      "bcryptjs",
+      "Google OAuth",
+      "AWS S3",
+    ],
+  },
+  {
     title: "Kanban Board",
     content: [
       {
