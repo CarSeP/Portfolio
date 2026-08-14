@@ -16,6 +16,14 @@ export const certifications = [
     img: "/certifications/introduction-to-docker.webp",
   },
   {
+    title: "Aprendiz de desarrollador de software",
+    img: "/certifications/software-craftsmans-apprentice.webp",
+  },
+  {
+    title: "Fundamentos de la programación: Matemáticas discretas",
+    img: "/certifications/fundamentals-of-programming.webp",
+  },
+  {
     title: "Inglés A2 para desarrolladores",
     img: "/certifications/a2-english-for-developers.webp",
   },
