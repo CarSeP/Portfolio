@@ -123,12 +123,7 @@ export const projects: Project[] = [
         title: "Frontend Code",
         icon: ChevronsLeftRightEllipsis,
         url: "https://github.com/CarSeP/KanbanBoard-Frontend",
-      },
-      {
-        title: "Web",
-        icon: Globe,
-        url: "https://kanban.carsep.xyz",
-      },
+      }
     ],
     technologies: [
       "TypeScript",
